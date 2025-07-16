@@ -1,0 +1,29 @@
+- name: Install required packages
+  apt:
+    name: "{{ jenkins_packages }}"
+    state: present
+    update_cache: true
+
+- name: Add Jenkins GPG key
+  apt_key:
+    url: "{{ jenkins_apt_key_url }}"
+    state: present
+
+- name: Add Jenkins APT repository
+  apt_repository:
+    repo: "{{ jenkins_apt_repo }}"
+    state: present
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: present
+    update_cache: true
+
+- name: Ensure Jenkins is started and enabled
+  service:
+    name: jenkins
+    state: started
+    enabled: true
+  notify : jenkins
+  

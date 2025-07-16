@@ -1,0 +1,12 @@
+- name: Open port {{ jenkins_port }} in UFW
+  ufw:
+    rule: allow
+    port: "{{ jenkins_port }}"
+    proto: tcp
+
+- name: Ensure Jenkins service is running on port {{ jenkins_port }}
+  lineinfile:
+    path: /etc/default/jenkins
+    regexp: "^HTTP_PORT="
+    line: "HTTP_PORT={{ jenkins_port }}"
+  notify: restart jenkins

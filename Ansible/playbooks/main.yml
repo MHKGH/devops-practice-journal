@@ -1,0 +1,4 @@
+- name : Setting up Jenkins Master
+  become: true
+  tasks:
+    - jenkins

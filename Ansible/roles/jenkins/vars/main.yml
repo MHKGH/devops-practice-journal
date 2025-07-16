@@ -1,0 +1,5 @@
+jenkins_apt_key_url: https://pkg.jenkins.io/debian/jenkins.io.key
+jenkins_apt_repo: "deb https://pkg.jenkins.io/debian binary/"
+jenkins_packages:
+  - openjdk-11-jdk
+  - jenkins

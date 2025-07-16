@@ -1,0 +1,5 @@
+jenkins_port: 8080
+jenkins_hostname: test-jenkins.local
+jenkins_url: "http://{{ jenkins_hostname }}:{{ jenkins_port }}"
+jenkins_admin_user: admin
+jenkins_admin_password: admin123

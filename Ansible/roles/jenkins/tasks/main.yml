@@ -1,0 +1,8 @@
+- name : Run jenkins installation tasks
+  include_tasks : install.yml
+
+- name : Run jenkins configure tasks
+  include_tasks : configure.yml
+
+- name: Setup hostname
+  import_tasks: hostname.yml

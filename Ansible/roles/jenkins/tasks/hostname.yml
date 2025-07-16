@@ -1,0 +1,6 @@
+- name: Add Jenkins hostname to /etc/hosts
+  become: true
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ ansible_host }} {{ jenkins_hostname }}"
+    state: present
