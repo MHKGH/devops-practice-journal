@@ -5,4 +5,14 @@ variable "sg_name" {}
 variable "ingress_cidr_block" {}
 variable "ami" {}
 variable "instance_type" {}
-variable "key_name" {}
+variable "common_tags" {
+  type = map(string)
+  default = {
+    Project     = "Practic"
+    Environment = "dev"
+    ManagedBy   = "terraform"
+    Owner       = "Hemanth"
+
+  }
+
+}

@@ -1,19 +1,26 @@
 resource "aws_vpc" "main" {
     cidr_block = var.vpc_main_cidr_block
-    tags = {
-      Name = "practice-VPC"
+    tags = merge(
+    var.tags,
+    {
+      Name = "${var.env}-practice-VPC"
     }
+  )
 }
+
 
 resource "aws_subnet" "public_subnet" {
     vpc_id = aws_vpc.main.id
     cidr_block = var.public_subnet_cidr_block
     availability_zone = "ap-south-1a"
 
-    tags = {
-      Name = "Public-Subnet"
+    tags = merge(
+    var.tags,
+    {
+      Name = "${var.env}-Public-Subnet"
     }
-    }
+  )
+}
 
 # Internet Gateway
 

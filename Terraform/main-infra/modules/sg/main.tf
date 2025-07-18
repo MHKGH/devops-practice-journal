@@ -2,9 +2,13 @@ resource "aws_security_group" "allow_ssh" {
     vpc_id = var.vpc_id
     name = var.sg_name
 
-    tags = {
-      Name = "Jenkins-SG"
+    tags = merge(
+    var.tags,
+    {
+      Name = "${var.env}-Jenkins-SG"
     }
+  )
+
 
     ingress {
         from_port = 22

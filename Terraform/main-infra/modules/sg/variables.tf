@@ -9,3 +9,8 @@ variable "env" {
   type        = string
   description = "Deployment environment."
 }
+variable "tags" {
+  description = "Resource tags"
+  type        = map(string)
+  default     = {}
+}
