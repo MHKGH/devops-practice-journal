@@ -2,7 +2,7 @@ module "vpc" {
   source                   = "../modules/vpc"
   vpc_main_cidr_block      = var.vpc_main_cidr_block
   public_subnet_cidr_block = var.public_subnet_cidr_block
-
+  env                      = var.env
 }
 
 module "sg" {
@@ -10,7 +10,7 @@ module "sg" {
   vpc_id             = module.vpc.vpc_id
   sg_name            = var.sg_name
   ingress_cidr_block = var.ingress_cidr_block
-
+  env                = var.env
 }
 
 module "ec2" {
@@ -20,5 +20,5 @@ module "ec2" {
   key_name      = var.key_name
   sg_id         = module.sg.sg_id
   subnet_id     = module.vpc.public_subnet_id
-
+  env           = var.env
 }

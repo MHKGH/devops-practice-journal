@@ -7,12 +7,10 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "terraform-practice-mhk6010"
-    key = "dev/terraform.tfstate"
+    key    = "test/terraform.tfstate"
     region = "ap-south-1"
     encrypt = true
 
-    use_lockfile = true
-    lock_table = "terraform-state-lock"
-    
+    dynamodb_table = "terraform-state-lock"
   }
 }
