@@ -28,6 +28,6 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     type = "S"
   }
   tags = {
-    Purpose = "terraform-code-practice"
+    Purpose = "terraform-state-lock"
   }
 }
