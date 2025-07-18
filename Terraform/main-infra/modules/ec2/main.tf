@@ -8,7 +8,6 @@ resource "aws_instance" "jenkins_master" {
 
     tags = {
       Name = "Jenkins-Master"
-      Environment = "Dev"
     }
   
 }
